@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div data-th-if="${bookingId}">
+        <h1>Your reservation reference is <span data-th-text="${bookingId}"></span> </h1>
+        
+        <br />
+      </div>
+      <div data-th-unless="${bookingId}">
+        <h1>There is not enough vacancy</h1>
+      </div>
+      <a href="/home">Back</a>
+    
+</body>
+</html>

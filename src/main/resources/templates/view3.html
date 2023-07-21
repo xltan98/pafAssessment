@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body >
+    
+    <!-- <a data-th-href="@{/search?country={country}&accomodates={accomodates}&min={min}&max={max} (country=${country}, accomodates=${accomodates},min=${min},max=${max})}">back</a> -->
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Description</th>
+                <th>Address</th>
+                <th>Price</th>
+                <th>Ammenities</th>
+            </tr>
+        </thead>
+        <tbody data-th-object=${accomodation}>
+                <td>
+                    <span data-th-text="*{id}"></span> 
+                </td>
+                <td>
+                    <span data-th-text="*{description}"></span> 
+                    <img th:src="@{*{imagesPictureUrl}}" alt="Image" >
+                </td>
+                <td>
+                    <span data-th-text="*{addressStreet}"></span>
+                    <span data-th-text="*{addressSuburb}"></span>
+                    <span data-th-text="*{addressCountry}"></span> 
+                    
+                </td>
+                <td>
+                    <span data-th-text="*{price}"
+                </td>
+                <td>
+                    <span data-th-text="*{amenities}"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <form data-th-object="${form}" method="post" action="/booked" >
+        <h1>Bookings</h1>
+        <input type="hidden" th:name="id" th:value="${accomodation.id}" />
+        <p>Name:<input type="text" data-th-field="*{userName}"></p>
+        <p>Email:<input type="text" data-th-field="*{userEmail}"></p>
+        <p>Arrival Date:<input type="date" data-th-field="*{arrivalDate}"></p>
+        <p>Duration<input type="number" data-th-field="*{duration}"></p>
+
+        <button type="submit">Book</button>
+
+
+    </form>
+    
+</body>
+</html>

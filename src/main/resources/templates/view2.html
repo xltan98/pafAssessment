@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Listing for <span data-th-text="${country}"></span></h1>
+    <a href="/">back</a>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Address</th>
+                <th>price</th>
+                <th>Image</th>
+                <th>      </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-th-each="s: ${accomodationList}" data-th-object="${s}">
+                <td>
+                    <span data-th-text="*{addressStreet}"></span> 
+                </td>
+                <td>
+                    <span data-th-text="*{price}"></span> 
+                </td>
+                <td>
+                    <!-- <th th:src="@{*{imagesPictureUrl}}"></span>  -->
+                        <img th:src="@{${s.imagesPictureUrl}}" alt="Image"></span> 
+                </td>
+                <td>
+                    <!-- <a data-th-href="@{/detail/{id} (id=*{id})}">
+                        <span data-th-text="*{id}"></span>
+                    </a> -->
+
+                    <form data-th-action="@{/detail/{id} (id=*{id})}">
+                        <input type="submit" value="details" />
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+</body>
+</html>

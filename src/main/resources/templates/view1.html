@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p data-th-if="${globalError != null && not globalError.isBlank()}" style="color:red;">
+        <span data-th-text="${globalError}"></span>
+    </p>
+    <form method="get" action="/search">
+        <h1>Search Our Accomodations</h1>
+        <p>Country:<select name="country">
+            <option th:each="country:${countryList}" th:value="${country}" th:text="${country}"></option>
+        </select></p>
+        <p>Number Of Person:<input name="accomodates" type="number" min="1" max="10" value=1></p>
+        <p>Price Range: Min<input name="min" type="text" value=1>Max<input name="max" type="text" value=10></p>
+        <button type="submit">Search</button>
+    </form>
+
+    
+</body>
+</html>
