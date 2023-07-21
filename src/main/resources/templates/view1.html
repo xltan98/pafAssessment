@@ -15,7 +15,7 @@
             <option th:each="country:${countryList}" th:value="${country}" th:text="${country}"></option>
         </select></p>
         <p>Number Of Person:<input name="accomodates" type="number" min="1" max="10" value=1></p>
-        <p>Price Range: Min<input name="min" type="text" value=1>Max<input name="max" type="text" value=10></p>
+        <p>Price Range: Min<input name="min" type="text" value=1>Max<input name="max" type="text" value=100></p>
         <button type="submit">Search</button>
     </form>
 

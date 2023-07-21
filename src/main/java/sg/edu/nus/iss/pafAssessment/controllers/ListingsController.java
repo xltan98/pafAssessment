@@ -39,8 +39,10 @@ public class ListingsController {
     public String getSearchResult(@RequestParam String country,@RequestParam Integer accomodates, @RequestParam double min,@RequestParam double max,Model m){
         List<Accomodation> accomodationList=lServ.getSearchResult(country,accomodates,min,max);
         m.addAttribute("accomodationList",accomodationList);
+
+
         m.addAttribute("country",country);
-        m.addAttribute("accomodates",accomodates);
+        m.addAttribute("accomodates",accomodates.toString());
         m.addAttribute("min",min);
         m.addAttribute("max",max);
 

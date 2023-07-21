@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import jakarta.json.Json;
+import sg.edu.nus.iss.pafAssessment.exception.InsufficientVacancyException;
 import sg.edu.nus.iss.pafAssessment.models.Accomodation;
 import sg.edu.nus.iss.pafAssessment.models.BookingForm;
 import sg.edu.nus.iss.pafAssessment.models.Vacancy;
@@ -106,8 +107,8 @@ public class ListingsService {
         }
         else{
             if(!bEnoughVacancy){
-                //throw error here
-                return "error";
+                throw new InsufficientVacancyException("Not enough vacancy");
+               
             }
        
         }
